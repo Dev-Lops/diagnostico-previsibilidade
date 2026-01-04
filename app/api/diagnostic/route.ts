@@ -5,7 +5,7 @@ export async function POST(req: Request) {
     const data = await req.json()
     const result = calculate(data)
     return Response.json(result)
-  } catch (error) {
+  } catch {
     return Response.json(
       { error: 'Erro ao processar diagnóstico' },
       { status: 400 }
