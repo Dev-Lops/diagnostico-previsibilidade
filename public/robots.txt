@@ -1,0 +1,30 @@
+# Robots.txt - Directivas para web crawlers
+User-agent: *
+Allow: /
+Allow: /diagnostico
+Disallow: /api/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /resultado # Página dinâmica, não indexável
+
+# Específico para Google
+User-agent: Googlebot
+Allow: /
+
+# Específico para Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Google Search Console
+Sitemap: https://diagnostico-previsibilidade.vercel.app/sitemap.xml
+
+# Tempo máximo de crawl
+Crawl-delay: 1
+Request-rate: 1/5
+
+# Permitir Google e Bing para acesso mais rápido
+User-agent: Googlebot
+Request-rate: 100/1m
+
+User-agent: Bingbot
+Request-rate: 100/1m

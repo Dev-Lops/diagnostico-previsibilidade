@@ -4,6 +4,9 @@ import type { FormData, MainAcquisition } from '@/lib/types'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+// Nota: Metadata não pode ser exportada em 'use client' 
+// Esta será gerenciada pelo layout parent ou via estrutura de páginas
+
 const STEPS = [
   { id: 1, title: 'Seus dados', description: 'Para enviarmos seu diagnóstico' },
   { id: 2, title: 'Seu negócio', description: 'Informações básicas' },
@@ -148,12 +151,15 @@ export default function DiagnosticoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black py-12 px-4 relative overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-purple-900/20 via-pink-900/20 to-red-900/20 animate-gradient-shift"></div>
+    <div className="min-h-screen bg-premium-dark py-12 px-4 relative overflow-hidden">
+      {/* Premium animated background */}
+      <div className="absolute inset-0 opacity-50">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-gradient-to-tr from-amber-700/15 to-transparent blur-3xl animate-float delay-500"></div>
+      </div>
 
       <div className="max-w-2xl mx-auto relative z-10">
-        {/* Progress Bar */}
+        {/* Progress Bar - Premium Gold */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-4">
             {STEPS.map((step) => (
@@ -163,18 +169,18 @@ export default function DiagnosticoPage() {
               >
                 <div
                   className={`h-2 rounded-full transition-all ${step.id <= currentStep
-                    ? 'bg-linear-to-r from-cyan-400 via-blue-500 to-purple-500'
-                    : 'bg-gray-700'
+                    ? 'bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400'
+                    : 'bg-gray-800/50'
                     }`}
                 />
               </div>
             ))}
           </div>
           <div className="text-center">
-            <p className="text-sm text-cyan-300">
-              Passo {currentStep} de {STEPS.length}
+            <p className="text-sm text-amber-400 font-semibold tracking-widest">
+              PASSO {currentStep} DE {STEPS.length}
             </p>
-            <h2 className="text-3xl font-bold text-white mt-1 drop-shadow-[0_0_15px_rgba(0,255,255,0.5)]">
+            <h2 className="text-4xl font-bold text-white mt-2">
               {STEPS[currentStep - 1].title}
             </h2>
             <p className="text-gray-300 text-sm mt-2">
@@ -183,23 +189,23 @@ export default function DiagnosticoPage() {
           </div>
         </div>
 
-        {/* Form Card */}
+        {/* Form Card - Premium Black & Gold */}
         <div className="relative group">
-          <div className="absolute -inset-1 bg-linear-to-r from-cyan-400 to-purple-500 rounded-3xl blur opacity-40 group-hover:opacity-70 transition duration-500 animate-glow"></div>
-          <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-cyan-500/30">
+          <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/30 via-amber-600/30 to-yellow-500/30 rounded-3xl blur opacity-50 group-hover:opacity-70 transition duration-500"></div>
+          <div className="relative bg-gradient-to-b from-gray-950/95 to-black/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border-2 border-amber-600/40">
             {/* Passo 1: Dados pessoais */}
             {currentStep === 1 && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    Nome completo *
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    NOME COMPLETO *
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => updateField('name', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-cyan-500/50'
-                      } bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.name ? 'border-red-500/70 bg-red-950/20' : 'border-amber-600/50 bg-gray-900/50'
+                      } text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition`}
                     placeholder="Ex: João Silva"
                     autoComplete="name"
                   />
@@ -209,15 +215,15 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    E-mail *
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    E-MAIL *
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => updateField('email', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-cyan-500/50'
-                      } bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.email ? 'border-red-500/70 bg-red-950/20' : 'border-amber-600/50 bg-gray-900/50'
+                      } text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition`}
                     placeholder="seu@email.com"
                     autoComplete="email"
                   />
@@ -227,14 +233,14 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    WhatsApp (opcional)
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    WHATSAPP (OPCIONAL)
                   </label>
                   <input
                     type="tel"
                     value={formData.whatsapp}
                     onChange={(e) => updateField('whatsapp', e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg border border-cyan-500/50 bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-amber-600/50 bg-gray-900/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition"
                     placeholder="(11) 99999-9999"
                   />
                 </div>
@@ -245,8 +251,8 @@ export default function DiagnosticoPage() {
             {currentStep === 2 && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    Faturamento mensal atual (R$) *
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    FATURAMENTO MENSAL ATUAL (R$) *
                   </label>
                   <input
                     type="number"
@@ -254,8 +260,8 @@ export default function DiagnosticoPage() {
                     onChange={(e) =>
                       updateField('revenue', parseFloat(e.target.value) || 0)
                     }
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.revenue ? 'border-red-500' : 'border-cyan-500/50'
-                      } bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.revenue ? 'border-red-500/70 bg-red-950/20' : 'border-amber-600/50 bg-gray-900/50'
+                      } text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition`}
                     placeholder="50000"
                   />
                   {errors.revenue && (
@@ -267,8 +273,8 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    Ticket médio (R$) *
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    TICKET MÉDIO (R$) *
                   </label>
                   <input
                     type="number"
@@ -276,8 +282,8 @@ export default function DiagnosticoPage() {
                     onChange={(e) =>
                       updateField('ticket', parseFloat(e.target.value) || 0)
                     }
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.ticket ? 'border-red-500' : 'border-cyan-500/50'
-                      } bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.ticket ? 'border-red-500/70 bg-red-950/20' : 'border-amber-600/50 bg-gray-900/50'
+                      } text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition`}
                     placeholder="Ex: 5000"
                   />
                   {errors.ticket && (
@@ -289,8 +295,8 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    Principal canal de aquisição *
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    PRINCIPAL CANAL DE AQUISIÇÃO *
                   </label>
                   <select
                     title='name'
@@ -301,11 +307,11 @@ export default function DiagnosticoPage() {
                         e.target.value as MainAcquisition
                       )
                     }
-                    className="w-full px-4 py-3 rounded-lg border border-cyan-500/50 bg-gray-800/50 text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-amber-600/50 bg-gray-900/50 text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition"
                   >
-                    <option value="indication" className="bg-gray-800">Indicações</option>
-                    <option value="ads" className="bg-gray-800">Anúncios pagos</option>
-                    <option value="organic" className="bg-gray-800">Tráfego orgânico</option>
+                    <option value="indication" className="bg-gray-900">Indicações</option>
+                    <option value="ads" className="bg-gray-900">Anúncios pagos</option>
+                    <option value="organic" className="bg-gray-900">Tráfego orgânico</option>
                   </select>
                 </div>
               </div>
@@ -315,8 +321,8 @@ export default function DiagnosticoPage() {
             {currentStep === 3 && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    Investimento mensal em marketing (R$) *
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    INVESTIMENTO MENSAL EM MARKETING (R$) *
                   </label>
                   <input
                     type="number"
@@ -327,10 +333,10 @@ export default function DiagnosticoPage() {
                         parseFloat(e.target.value) || 0
                       )
                     }
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.marketingInvestment
-                      ? 'border-red-500'
-                      : 'border-cyan-500/50'
-                      } bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.marketingInvestment
+                      ? 'border-red-500/70 bg-red-950/20'
+                      : 'border-amber-600/50 bg-gray-900/50'
+                      } text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition`}
                     placeholder="Ex: 5000 (ou 0 se não investe)"
                   />
                   {errors.marketingInvestment && (
@@ -344,8 +350,8 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    Taxa de conversão (%) *
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    TAXA DE CONVERSÃO (%) *
                   </label>
                   <input
                     type="number"
@@ -361,10 +367,10 @@ export default function DiagnosticoPage() {
                         parseFloat(e.target.value) / 100 || 0.02
                       )
                     }
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.conversionRate
-                      ? 'border-red-500'
-                      : 'border-cyan-500/50'
-                      } bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.conversionRate
+                      ? 'border-red-500/70 bg-red-950/20'
+                      : 'border-amber-600/50 bg-gray-900/50'
+                      } text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition`}
                     placeholder="2"
                   />
                   {errors.conversionRate && (
@@ -378,8 +384,8 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-cyan-300 mb-2">
-                    Capacidade de atendimento/mês (opcional)
+                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                    CAPACIDADE DE ATENDIMENTO/MÊS (OPCIONAL)
                   </label>
                   <input
                     type="number"
@@ -390,7 +396,7 @@ export default function DiagnosticoPage() {
                         e.target.value ? parseInt(e.target.value) : undefined
                       )
                     }
-                    className="w-full px-4 py-3 rounded-lg border border-cyan-500/50 bg-gray-800/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-amber-600/50 bg-gray-900/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition"
                     placeholder="Ex: 20 (deixe vazio se não tem limite)"
                   />
                   <p className="text-gray-400 text-xs mt-1">
@@ -413,18 +419,18 @@ export default function DiagnosticoPage() {
                 <button
                   onClick={handleBack}
                   disabled={loading}
-                  className="flex-1 px-6 py-3 rounded-lg border border-cyan-500/50 text-cyan-300 font-semibold hover:bg-cyan-500/10 transition-all disabled:opacity-50"
+                  className="flex-1 px-6 py-3 rounded-xl border-2 border-amber-600/50 text-amber-400 font-semibold hover:bg-amber-600/10 transition-all disabled:opacity-50"
                 >
-                  Voltar
+                  ← Voltar
                 </button>
               )}
               <button
                 onClick={handleNext}
                 disabled={loading}
-                className="group relative flex-1 px-6 py-3 rounded-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group relative flex-1 px-6 py-3 rounded-xl overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <div className="absolute inset-0 bg-linear-to-r from-cyan-500 via-blue-600 to-purple-600 group-hover:scale-105 transition-transform"></div>
-                <span className="relative text-white font-bold text-lg flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-amber-600 to-yellow-500 group-hover:scale-105 transition-transform"></div>
+                <span className="relative text-black font-bold text-lg flex items-center justify-center">
                   {loading ? (
                     <>
                       <svg
@@ -446,7 +452,7 @@ export default function DiagnosticoPage() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         />
                       </svg>
-                      Calculando...
+                      Analisando...
                     </>
                   ) : currentStep === 3 ? (
                     'Ver meu diagnóstico ✨'
@@ -461,7 +467,7 @@ export default function DiagnosticoPage() {
 
         {/* Trust indicators */}
         <div className="mt-6 text-center">
-          <p className="text-sm text-cyan-300/70">
+          <p className="text-sm text-amber-400/70">
             🔒 Seus dados estão seguros • Não compartilhamos suas informações
           </p>
         </div>
