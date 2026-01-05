@@ -91,21 +91,21 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Social Proof - Premium with AI Avatars */}
+            {/* Social Proof - Premium with Realistic AI Avatars */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-gray-300 text-sm animate-fade-in-up delay-500">
               <div className="flex -space-x-4">
                 <img
-                  src="https://robohash.org/user1?size=44x44&bgset=bg1"
+                  src="https://i.pravatar.cc/150?u=user1&img=12"
                   alt="Avatar 1"
                   className="avatar-ai"
                 />
                 <img
-                  src="https://robohash.org/user2?size=44x44&bgset=bg2"
+                  src="https://i.pravatar.cc/150?u=user2&img=24"
                   alt="Avatar 2"
                   className="avatar-ai"
                 />
                 <img
-                  src="https://robohash.org/user3?size=44x44&bgset=bg3"
+                  src="https://i.pravatar.cc/150?u=user3&img=33"
                   alt="Avatar 3"
                   className="avatar-ai"
                 />
