@@ -24,29 +24,29 @@ export default function Home() {
       <div className="min-h-screen bg-premium-dark relative overflow-hidden">
         {/* Premium Animated Background */}
         <div className="absolute inset-0 opacity-50">
-          {/* Gold gradient orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
-          <div className="absolute top-1/2 right-0 w-80 h-80 bg-gradient-to-bl from-amber-600/15 via-transparent to-transparent blur-3xl animate-float delay-1000"></div>
-          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-gradient-to-tr from-amber-700/10 to-transparent blur-3xl animate-float delay-500"></div>
+          {/* Gold gradient orbs - Responsivos */}
+          <div className="absolute top-0 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
+          <div className="absolute top-1/2 right-0 w-24 h-24 sm:w-40 sm:h-40 md:w-80 md:h-80 bg-gradient-to-bl from-amber-600/15 via-transparent to-transparent blur-3xl animate-float delay-1000"></div>
+          <div className="absolute bottom-0 left-1/3 w-32 h-32 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-gradient-to-tr from-amber-700/10 to-transparent blur-3xl animate-float delay-500"></div>
 
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 opacity-5 bg-[linear-gradient(0deg,transparent_24%,rgba(212,175,55,.05)_25%,rgba(212,175,55,.05)_26%,transparent_27%,transparent_74%,rgba(212,175,55,.05)_75%,rgba(212,175,55,.05)_76%,transparent_77%,transparent),linear-gradient(90deg,transparent_24%,rgba(212,175,55,.05)_25%,rgba(212,175,55,.05)_26%,transparent_27%,transparent_74%,rgba(212,175,55,.05)_75%,rgba(212,175,55,.05)_76%,transparent_77%,transparent)] bg-[50px_50px]"></div>
         </div>
 
         {/* Hero Section */}
-        <main className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+        <main className="container mx-auto px-4 py-12 sm:py-16 md:py-24 relative z-10">
           <div className="max-w-5xl mx-auto">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 glass-premium px-6 py-3 mb-12 rounded-full animate-fade-in-up delay-100">
+            <div className="inline-flex items-center gap-3 glass-premium px-4 sm:px-6 py-2 sm:py-3 mb-8 sm:mb-12 rounded-full animate-fade-in-up delay-100">
               <div className="w-2.5 h-2.5 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">
+              <span className="text-xs sm:text-sm font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">
                 DIAGNÓSTICO ESTRATÉGICO PREMIUM
               </span>
             </div>
 
             {/* Main Headline - Premium Gold Gradient */}
-            <div className="mb-12 animate-fade-in-up delay-200">
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <div className="mb-8 sm:mb-12 animate-fade-in-up delay-200">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-6 sm:mb-8 leading-tight tracking-tight">
                 Transforme seu negócio em{" "}
                 <span className="gold-text">
                   receita previsível
@@ -55,20 +55,20 @@ export default function Home() {
             </div>
 
             {/* Subheadline */}
-            <div className="max-w-3xl mb-12 animate-fade-in-up delay-300">
-              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed mb-6">
+            <div className="max-w-3xl mb-8 sm:mb-12 animate-fade-in-up delay-300">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed mb-4 sm:mb-6">
                 A diferença entre empresas que <span className="gold-text-subtle">crescem exponencialmente</span> e as que vivem no caos financeiro está na previsibilidade de receita.
               </p>
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
                 Nosso diagnóstico estratégico revela exatamente onde seu funil está vazando receita e quanto você pode recuperar com otimizações precisas.
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-12 animate-fade-in-up delay-400">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-8 sm:mb-12 animate-fade-in-up delay-400">
               <Link
                 href="/diagnostico"
-                className="btn-premium rounded-full px-12 py-5 text-lg font-bold shadow-gold-glow hover:shadow-gold-lg"
+                className="btn-premium rounded-full px-6 sm:px-12 py-3 sm:py-5 text-sm sm:text-lg font-bold shadow-gold-glow hover:shadow-gold-lg w-full sm:w-auto text-center"
               >
                 Iniciar Diagnóstico Premium
                 <svg
@@ -91,12 +91,24 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Social Proof - Premium */}
-            <div className="flex items-center gap-4 text-gray-300 text-sm animate-fade-in-up delay-500">
+            {/* Social Proof - Premium with AI Avatars */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-gray-300 text-sm animate-fade-in-up delay-500">
               <div className="flex -space-x-4">
-                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 border-2 border-amber-700/50 shadow-lg flex-shrink-0"></div>
-                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border-2 border-amber-700/50 shadow-lg flex-shrink-0"></div>
-                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 border-2 border-amber-700/50 shadow-lg flex-shrink-0"></div>
+                <img
+                  src="https://robohash.org/user1?size=44x44&bgset=bg1"
+                  alt="Avatar 1"
+                  className="avatar-ai"
+                />
+                <img
+                  src="https://robohash.org/user2?size=44x44&bgset=bg2"
+                  alt="Avatar 2"
+                  className="avatar-ai"
+                />
+                <img
+                  src="https://robohash.org/user3?size=44x44&bgset=bg3"
+                  alt="Avatar 3"
+                  className="avatar-ai"
+                />
                 <div className="w-11 h-11 rounded-full bg-black border-2 border-amber-600/50 flex items-center justify-center text-xs font-bold text-amber-400 shadow-lg flex-shrink-0">+500</div>
               </div>
               <span className="gold-text-subtle">Utilizado por empresas de 6 e 7 dígitos</span>
@@ -104,21 +116,21 @@ export default function Home() {
           </div>
 
           {/* Features Grid - Premium Black & Gold */}
-          <div className="mt-32 max-w-6xl mx-auto">
-            <div className="mb-16 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="mt-16 sm:mt-24 md:mt-32 max-w-6xl mx-auto px-0">
+            <div className="mb-12 sm:mb-16 text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                 O que você <span className="gold-text">descobre</span> no diagnóstico
               </h2>
               <div className="divider-gold-thick max-w-20 mx-auto mt-6"></div>
-              <p className="text-gray-400 text-lg mt-8">Análise profunda baseada em métricas reais do seu negócio</p>
+              <p className="text-gray-400 text-sm sm:text-base md:text-lg mt-6 sm:mt-8">Análise profunda baseada em métricas reais do seu negócio</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {/* Card 1 */}
-              <div className="card-premium rounded-2xl p-8 group hover-lift">
-                <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-xl flex items-center justify-center mb-6 shadow-gold">
+              <div className="card-premium rounded-2xl p-6 sm:p-8 group hover-lift">
+                <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6 shadow-gold">
                   <svg
-                    className="w-7 h-7 text-black"
+                    className="w-6 sm:w-7 h-6 sm:h-7 text-black"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

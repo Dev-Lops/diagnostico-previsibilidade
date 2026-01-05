@@ -34,13 +34,13 @@ export default function ResultadoPage() {
 
   if (!result || !formData) {
     return (
-      <div className="min-h-screen bg-premium-dark flex items-center justify-center relative overflow-hidden">
+      <div className="min-h-screen bg-premium-dark flex items-center justify-center relative overflow-hidden px-4">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
+          <div className="absolute top-0 right-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
         </div>
         <div className="relative z-10 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-amber-500/30 border-t-amber-500 animate-spin mb-4"></div>
-          <p className="text-gray-300 font-medium">Analisando seus dados...</p>
+          <div className="inline-flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16 rounded-full border-2 border-amber-500/30 border-t-amber-500 animate-spin mb-4"></div>
+          <p className="text-gray-300 font-medium text-sm sm:text-base">Analisando seus dados...</p>
         </div>
       </div>
     )
@@ -90,52 +90,52 @@ export default function ResultadoPage() {
     <div className="min-h-screen bg-premium-dark relative overflow-hidden">
       {/* Premium animated background */}
       <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
-        <div className="absolute top-1/2 right-0 w-80 h-80 bg-gradient-to-bl from-amber-600/15 via-transparent to-transparent blur-3xl animate-float delay-1000"></div>
-        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-gradient-to-tr from-amber-700/10 to-transparent blur-3xl animate-float delay-500"></div>
+        <div className="absolute top-0 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
+        <div className="absolute top-1/2 right-0 w-24 h-24 sm:w-40 sm:h-40 md:w-80 md:h-80 bg-gradient-to-bl from-amber-600/15 via-transparent to-transparent blur-3xl animate-float delay-1000"></div>
+        <div className="absolute bottom-0 left-1/3 w-32 h-32 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-gradient-to-tr from-amber-700/10 to-transparent blur-3xl animate-float delay-500"></div>
       </div>
 
-      <main className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <main className="container mx-auto px-4 py-8 sm:py-16 md:py-24 relative z-10">
         {/* Hero Section */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-3 glass-premium px-6 py-3 mb-8 rounded-full">
+        <div className="max-w-5xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-3 glass-premium px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 rounded-full">
             <div className="w-2.5 h-2.5 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">
+            <span className="text-xs sm:text-sm font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">
               ANÁLISE CONCLUÍDA
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight tracking-tight">
             {formData.name.split(' ')[0]}, sua{" "}
             <span className="gold-text">
               oportunidade de crescimento
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl leading-relaxed">
             Análise profunda baseada nos dados reais do seu negócio. Abaixo, as métricas exatas para transformar sua empresa em um motor previsível de receita.
           </p>
         </div>
 
         {/* Main Metric - Loss */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <div className="relative card-premium rounded-3xl p-12 md:p-16 overflow-hidden group">
+        <div className="max-w-5xl mx-auto mb-12 sm:mb-16">
+          <div className="relative card-premium rounded-3xl p-6 sm:p-12 md:p-16 overflow-hidden group">
             <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-red-500/15 to-orange-500/15 blur-3xl"></div>
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-3 badge-gold px-4 py-2 mb-6 rounded-full">
+              <div className="inline-flex items-center gap-3 badge-gold px-3 sm:px-4 py-2 mb-4 sm:mb-6 rounded-full text-xs sm:text-sm">
                 <div className="w-2.5 h-2.5 bg-red-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-bold">OPORTUNIDADE IMEDIATA</span>
+                <span className="font-bold">OPORTUNIDADE IMEDIATA</span>
               </div>
-              <p className="text-gray-400 text-lg mb-4">Receita não capturada por mês</p>
-              <div className="flex items-baseline gap-4 mb-8">
-                <span className="text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">
+              <p className="text-gray-400 text-sm sm:text-lg mb-3 sm:mb-4">Receita não capturada por mês</p>
+              <div className="flex flex-col sm:flex-row items-start sm:items-baseline gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <span className="text-4xl sm:text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">
                   {formatCurrency(result.monthlyLoss)}
                 </span>
-                <span className="text-gray-400 text-lg">
+                <span className="text-gray-400 text-sm sm:text-lg">
                   ≈ {formatCurrency(Math.round(result.monthlyLoss / 30))}/dia
                 </span>
               </div>
-              <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
+              <p className="text-gray-300 text-sm sm:text-lg leading-relaxed max-w-2xl">
                 Esta é a diferença entre seu faturamento atual e o que você poderia gerar com um sistema previsível implementado.
               </p>
             </div>
@@ -143,11 +143,11 @@ export default function ResultadoPage() {
         </div>
 
         {/* Three Key Metrics */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto mb-12 sm:mb-16">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {/* Metric 1 */}
-            <div className="card-premium rounded-2xl p-8 group hover-lift">
-              <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-xl flex items-center justify-center mb-6 shadow-gold">
+            <div className="card-premium rounded-2xl p-6 sm:p-8 group hover-lift">
+              <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6 shadow-gold">
                 <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>

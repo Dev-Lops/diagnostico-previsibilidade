@@ -151,24 +151,24 @@ export default function DiagnosticoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-premium-dark py-12 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-premium-dark py-8 sm:py-12 px-4 relative overflow-hidden">
       {/* Premium animated background */}
       <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-gradient-to-tr from-amber-700/15 to-transparent blur-3xl animate-float delay-500"></div>
+        <div className="absolute top-0 right-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-gradient-to-br from-amber-600/20 via-amber-700/10 to-transparent blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/3 left-0 w-24 h-24 sm:w-40 sm:h-40 md:w-80 md:h-80 bg-gradient-to-tr from-amber-700/15 to-transparent blur-3xl animate-float delay-500"></div>
       </div>
 
       <div className="max-w-2xl mx-auto relative z-10">
         {/* Progress Bar - Premium Gold */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-4">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex justify-between items-center mb-3 sm:mb-4">
             {STEPS.map((step) => (
               <div
                 key={step.id}
                 className={`flex-1 ${step.id < STEPS.length ? 'mr-2' : ''}`}
               >
                 <div
-                  className={`h-2 rounded-full transition-all ${step.id <= currentStep
+                  className={`h-1.5 sm:h-2 rounded-full transition-all ${step.id <= currentStep
                     ? 'bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400'
                     : 'bg-gray-800/50'
                     }`}
@@ -177,13 +177,13 @@ export default function DiagnosticoPage() {
             ))}
           </div>
           <div className="text-center">
-            <p className="text-sm text-amber-400 font-semibold tracking-widest">
+            <p className="text-xs sm:text-sm text-amber-400 font-semibold tracking-widest">
               PASSO {currentStep} DE {STEPS.length}
             </p>
-            <h2 className="text-4xl font-bold text-white mt-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">
               {STEPS[currentStep - 1].title}
             </h2>
-            <p className="text-gray-300 text-sm mt-2">
+            <p className="text-gray-300 text-xs sm:text-sm mt-2">
               {STEPS[currentStep - 1].description}
             </p>
           </div>
@@ -192,12 +192,12 @@ export default function DiagnosticoPage() {
         {/* Form Card - Premium Black & Gold */}
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/30 via-amber-600/30 to-yellow-500/30 rounded-3xl blur opacity-50 group-hover:opacity-70 transition duration-500"></div>
-          <div className="relative bg-gradient-to-b from-gray-950/95 to-black/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border-2 border-amber-600/40">
+          <div className="relative bg-gradient-to-b from-gray-950/95 to-black/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 border-2 border-amber-600/40">
             {/* Passo 1: Dados pessoais */}
             {currentStep === 1 && (
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                  <label className="block text-xs sm:text-sm font-semibold text-amber-400 mb-2 tracking-wide">
                     NOME COMPLETO *
                   </label>
                   <input
@@ -215,25 +215,25 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                  <label className="block text-xs sm:text-sm font-semibold text-amber-400 mb-2 tracking-wide">
                     E-MAIL *
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => updateField('email', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.email ? 'border-red-500/70 bg-red-950/20' : 'border-amber-600/50 bg-gray-900/50'
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-xl border-2 text-sm ${errors.email ? 'border-red-500/70 bg-red-950/20' : 'border-amber-600/50 bg-gray-900/50'
                       } text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition`}
                     placeholder="seu@email.com"
                     autoComplete="email"
                   />
                   {errors.email && (
-                    <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+                    <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.email}</p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-amber-400 mb-2 tracking-wide">
+                  <label className="block text-xs sm:text-sm font-semibold text-amber-400 mb-2 tracking-wide">
                     WHATSAPP (OPCIONAL)
                   </label>
                   <input
@@ -414,12 +414,12 @@ export default function DiagnosticoPage() {
             )}
 
             {/* Navigation Buttons */}
-            <div className="mt-8 flex gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               {currentStep > 1 && (
                 <button
                   onClick={handleBack}
                   disabled={loading}
-                  className="flex-1 px-6 py-3 rounded-xl border-2 border-amber-600/50 text-amber-400 font-semibold hover:bg-amber-600/10 transition-all disabled:opacity-50"
+                  className="w-full sm:flex-1 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl border-2 border-amber-600/50 text-amber-400 font-semibold text-sm sm:text-base hover:bg-amber-600/10 transition-all disabled:opacity-50"
                 >
                   ← Voltar
                 </button>
@@ -427,14 +427,14 @@ export default function DiagnosticoPage() {
               <button
                 onClick={handleNext}
                 disabled={loading}
-                className="group relative flex-1 px-6 py-3 rounded-xl overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group relative w-full sm:flex-1 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-amber-600 to-yellow-500 group-hover:scale-105 transition-transform"></div>
-                <span className="relative text-black font-bold text-lg flex items-center justify-center">
+                <span className="relative text-black font-bold text-sm sm:text-base flex items-center justify-center">
                   {loading ? (
                     <>
                       <svg
-                        className="animate-spin h-5 w-5 mr-2"
+                        className="animate-spin h-4 sm:h-5 w-4 sm:w-5 mr-2"
                         viewBox="0 0 24 24"
                       >
                         <circle
